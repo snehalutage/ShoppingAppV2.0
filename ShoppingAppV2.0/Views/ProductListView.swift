@@ -18,14 +18,10 @@ struct ProductListView: View {
         NavigationView{
             VStack
             {
-                /*Text("Enjoy Shopping!!")
-                    .font(.title)
-                    .fontWeight(.bold)*/
                 Text("Product Categories")
                     .font(.title)
                     .fontWeight(.bold)
-                    .padding(.bottom, 20)
-                
+                Spacer()
                 VStack{
                         Picker("Categories", selection: $selectedCategory)
                         {
@@ -46,8 +42,8 @@ struct ProductListView: View {
                             }//end ForEach
                         }
                         .pickerStyle(.segmented)
-                        /*.shadow(color: .gray, radius: 10, x: 10, y: 10)
-                        .padding(10)*/
+                        /*.shadow(color: .gray, radius: 10, x: 10, y: 10)*/
+                        .padding(10)
                     }//end VStack
                     .task
                     {
@@ -56,10 +52,9 @@ struct ProductListView: View {
                     }
                     .onChange(of: selectedCategory, perform: {vaue in Task{ await productListViewModel.getProducts(cat: selectedCategory)}})
                 Spacer()
-                
-                ScrollView(.horizontal, showsIndicators: false)
+                ScrollView(.vertical, showsIndicators: false)
                 {
-                  HStack(spacing: 20)
+                  VStack(spacing: 20)
                     {
                       ForEach(productListViewModel.products, id: \.id)
                         {
@@ -79,8 +74,9 @@ struct ProductListView: View {
                 Spacer()
     
             }//end VStack
-            //.navigationTitle("Products")
-            //.navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         }//end NavigationView
     }//end body
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D31456E6BC3F71C835D860D /* Pods_ShoppingAppV2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B9E9C99D71AA525A10AC83 /* Pods_ShoppingAppV2_0.framework */; };
+		3679F5AF280CFD950027E6E9 /* OrderConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679F5AE280CFD950027E6E9 /* OrderConfirmView.swift */; };
 		36F17AE0280CA70000FB401D /* ShoppingAppV2_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17ADF280CA70000FB401D /* ShoppingAppV2_0App.swift */; };
 		36F17AE2280CA70000FB401D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17AE1280CA70000FB401D /* ContentView.swift */; };
 		36F17AE4280CA70400FB401D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36F17AE3280CA70400FB401D /* Assets.xcassets */; };
@@ -23,13 +24,13 @@
 		36F17B05280CB8F600FB401D /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B04280CB8F600FB401D /* Product.swift */; };
 		36F17B07280CB94800FB401D /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B06280CB94800FB401D /* ProductListViewModel.swift */; };
 		36F17B09280CBB3C00FB401D /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B08280CBB3C00FB401D /* ProductDetailView.swift */; };
-		36F17B0B280CBB6F00FB401D /* CartItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B0A280CBB6F00FB401D /* CartItems.swift */; };
 		36F17B0D280CBBBB00FB401D /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B0C280CBBBB00FB401D /* ProductCell.swift */; };
 		36F17B0F280CBC8600FB401D /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B0E280CBC8600FB401D /* CartView.swift */; };
 		36F17B11280CBCF700FB401D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F17B10280CBCF700FB401D /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3679F5AE280CFD950027E6E9 /* OrderConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmView.swift; sourceTree = "<group>"; };
 		36F17ADC280CA70000FB401D /* ShoppingAppV2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingAppV2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F17ADF280CA70000FB401D /* ShoppingAppV2_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingAppV2_0App.swift; sourceTree = "<group>"; };
 		36F17AE1280CA70000FB401D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,10 +47,10 @@
 		36F17B04280CB8F600FB401D /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		36F17B06280CB94800FB401D /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		36F17B08280CBB3C00FB401D /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
-		36F17B0A280CBB6F00FB401D /* CartItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItems.swift; sourceTree = "<group>"; };
 		36F17B0C280CBBBB00FB401D /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		36F17B0E280CBC8600FB401D /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		36F17B10280CBCF700FB401D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		36F17B12280CCC3A00FB401D /* ShoppingAppV2-0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ShoppingAppV2-0-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4B140E156A8F55B44156346C /* Pods-ShoppingAppV2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingAppV2.0.release.xcconfig"; path = "Target Support Files/Pods-ShoppingAppV2.0/Pods-ShoppingAppV2.0.release.xcconfig"; sourceTree = "<group>"; };
 		73B9E9C99D71AA525A10AC83 /* Pods_ShoppingAppV2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingAppV2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E417F9D3860C5EBFAD35B9C8 /* Pods-ShoppingAppV2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingAppV2.0.debug.xcconfig"; path = "Target Support Files/Pods-ShoppingAppV2.0/Pods-ShoppingAppV2.0.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		36F17ADE280CA70000FB401D /* ShoppingAppV2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				36F17B12280CCC3A00FB401D /* ShoppingAppV2-0-Info.plist */,
 				36F17AFF280CB89700FB401D /* Services */,
 				36F17AFE280CB88E00FB401D /* Utility */,
 				36F17AEF280CA7E500FB401D /* View Model */,
@@ -121,6 +123,7 @@
 				36F17B0C280CBBBB00FB401D /* ProductCell.swift */,
 				36F17B0E280CBC8600FB401D /* CartView.swift */,
 				36F17B10280CBCF700FB401D /* SignUpView.swift */,
+				3679F5AE280CFD950027E6E9 /* OrderConfirmView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				36F17B04280CB8F600FB401D /* Product.swift */,
-				36F17B0A280CBB6F00FB401D /* CartItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,10 +299,10 @@
 				36F17AE0280CA70000FB401D /* ShoppingAppV2_0App.swift in Sources */,
 				36F17AF5280CA93300FB401D /* AppViewModel.swift in Sources */,
 				36F17AF9280CA9F000FB401D /* HomeView.swift in Sources */,
+				3679F5AF280CFD950027E6E9 /* OrderConfirmView.swift in Sources */,
 				36F17B05280CB8F600FB401D /* Product.swift in Sources */,
 				36F17AF7280CA9CC00FB401D /* SignInView.swift in Sources */,
 				36F17AFB280CAFA300FB401D /* ButtonView.swift in Sources */,
-				36F17B0B280CBB6F00FB401D /* CartItems.swift in Sources */,
 				36F17B09280CBB3C00FB401D /* ProductDetailView.swift in Sources */,
 				36F17B0D280CBBBB00FB401D /* ProductCell.swift in Sources */,
 				36F17B11280CBCF700FB401D /* SignUpView.swift in Sources */,
@@ -364,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -419,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -441,11 +443,12 @@
 				DEVELOPMENT_TEAM = 89755XDBDJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ShoppingAppV2-0-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,11 +474,12 @@
 				DEVELOPMENT_TEAM = 89755XDBDJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ShoppingAppV2-0-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

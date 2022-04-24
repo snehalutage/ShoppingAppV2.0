@@ -12,13 +12,12 @@ import Firebase
 struct ShoppingAppV2_0App: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @StateObject var cart = CartItems()
+    
     var body: some Scene {
         WindowGroup {
             let viewModel = AppViewModel()
             ContentView()
-                .environmentObject(viewModel)
-                .environmentObject(cart)
+                .environmentObject(viewModel)      
         }
     }
 }

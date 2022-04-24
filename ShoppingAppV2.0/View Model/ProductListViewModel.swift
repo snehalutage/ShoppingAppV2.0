@@ -29,6 +29,7 @@ class ProductListViewModel: ObservableObject {
             print(error)
         }
     }
+    
     func getCategories() async {
         
         do {
@@ -43,7 +44,7 @@ class ProductListViewModel: ObservableObject {
     }
 }
 
-struct ProductViewModel : Identifiable {
+struct ProductViewModel : Identifiable, Hashable {
     
     fileprivate var product: Product
     

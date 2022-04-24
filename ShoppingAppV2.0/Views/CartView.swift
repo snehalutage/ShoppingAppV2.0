@@ -8,26 +8,31 @@
 import SwiftUI
 
 struct CartView: View {
-    @EnvironmentObject var cart: CartItems
     @EnvironmentObject var viewModel: AppViewModel
+    @State var isCartEmpty = true
     
-    var totalCharge:String{
+   /* var totalCharge:String{
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        let total = Double(cart.totalPrice())
+        let total = Double(viewModel.totalPrice())
         return formatter.string(from:NSNumber(value: total)) ?? "$0"
-    }
+    }*/
+   
     
     var body: some View {
+        let keys = viewModel.cartProduct.map{$0.key}
         
         VStack{
             
             Text("Cart Details")
+                .font(.title2)
+                .bold()
             
             List{
                 Section
                 {
-                    ForEach(cart.cartProduct){ item in
+                        
+                    ForEach(keys){ item in
                         HStack(alignment: .top, spacing: 15){
                             AsyncImage(url: URL(string: item.url)) {
                                 image in
@@ -37,7 +42,7 @@ struct CartView: View {
                             } placeholder: {
                                 ProgressView()
                             }
-                            .frame(width: 80, height: 80, alignment: .leading)
+                            .frame(width: 100, height: 100, alignment: .leading)
                             VStack(alignment: .leading, spacing:15){
                             Text(item.name)
                                     .font(.caption2)
@@ -48,7 +53,7 @@ struct CartView: View {
                                     .font(.caption2)
                                     .fontWeight(.light)
 
-                                Text("Count: \(item.number)")
+                                Text("Count: \(viewModel.cartProduct[item]!)")
                                     .font(.caption2)
                                     .fontWeight(.light)
   
@@ -56,43 +61,45 @@ struct CartView: View {
                         }
                     }
                 }
-                Section{
+               /* Section{
                     Text("Total amount: \(totalCharge)")
-                }
-              
-               /* Section
-                {
-                    NavigationLink(destination: Text("checkout")){
-                        Text("Place Order")
-                    }
+                        .layoutPriority(1)
                 }*/
-            }
-            Button(action: {print("Confirm Order \(cart.totalPrice())")})
-            {
-                HStack{
-                    Image(systemName: "creditcard")
-                    Text("Confirm Order")
-                        .font(.caption)
-                        .padding(8)
-                }
-                
-            }.font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 200, height: 50)
-                .background(Color.green)
-                .cornerRadius(15.0)
         
-        }.onAppear{
-            viewModel.signedIn = viewModel.iSignedIn
+            }
+            Button(action: {
+                print("Confirm Order \(viewModel.totalPrice())")
+                /*if (viewModel.cartProduct.count != 0 ){
+                    isCartEmpty = false
+                }*/
+            })
+            {
+                NavigationLink(destination: OrderConfirmView()) {
+                    HStack{
+                        Image(systemName: "creditcard")
+                        Text("Confirm Order")
+                            .font(.headline)
+                    }
+                }
+               
+            }
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 250, height: 50)
+            .background(Color.green)
+            .cornerRadius(15.0)
+            .disabled(viewModel.cartProduct.count == 0 ? true : false)
+            Spacer()
         }
     }
 }
 
+
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView()
-            .environmentObject(CartItems())
+            //.environmentObject(CartItems())
+            .environmentObject(AppViewModel())
             
     }
 }

@@ -11,6 +11,8 @@ struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @EnvironmentObject var viewModel: AppViewModel
+    @State private var showSignUpAlert = false
+    @State private var createUserSuccess = false
     
     var body: some View {
             VStack{
@@ -34,7 +36,12 @@ struct SignUpView: View {
                         {
                             return
                         }
+                        print(viewModel.signUpError)
                         viewModel.signUp(email: email, password: password)
+                        if(!viewModel.signUpError.isEmpty){
+                            showSignUpAlert = true
+                        }
+                       
                         }, label: {
                         Text("Create account")
                             .foregroundColor(Color.white)
@@ -42,6 +49,12 @@ struct SignUpView: View {
                             .background(Color.green)
                             .cornerRadius(8)
                     })
+                    .disabled(email.isEmpty || password.isEmpty)
+                    .alert("\(viewModel.signUpError)", isPresented: $showSignUpAlert) {
+                            Button("OK", role: .cancel) { }
+                        }
+                    
+                
                 
                     Spacer()
                 }

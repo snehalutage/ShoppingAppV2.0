@@ -11,7 +11,7 @@ struct SignInView: View {
     @State var email = ""
     @State var password = ""
     @EnvironmentObject var viewModel: AppViewModel
-    @State private var showingAlert = false
+    @State private var showAlert = false
     
     var body: some View {
             VStack
@@ -21,8 +21,10 @@ struct SignInView: View {
                     .scaledToFit()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 250, height: 250)
+                    .background(Color(UIColor.systemGray5))
                     .cornerRadius(150)
-                Spacer()
+                    //Spacer()
+ 
                 
                 VStack{
                     //Text field for email address
@@ -34,18 +36,23 @@ struct SignInView: View {
                             .disableAutocorrection(true)
                             .autocapitalization(.none)
                     }
-                    .padding()
+                    .padding(10)
                     .background(Color(UIColor.systemGray5))
                     .cornerRadius(10)
                     
                         
                     //Text field for password
-                    SecureField("Password", text: $password)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color(UIColor.systemGray5))
-                        .cornerRadius(10)
+                    HStack
+                    {
+                        Image(systemName: "lock")
+                            .foregroundColor(.secondary)
+                        SecureField("Password", text: $password)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                    }
+                    .padding(10)
+                    .background(Color(UIColor.systemGray5))
+                    .cornerRadius(10)
                     
                     Spacer()
                     //Login Button
@@ -54,23 +61,24 @@ struct SignInView: View {
                         {
                             return
                         }
-                        showingAlert = true
                         viewModel.signIn(email: email, password: password)
+                        if(viewModel.signInError != ""){
+                            showAlert = true
+                        }
                     }, label: {
                         SignInButtonView()
                     })
-                        .alert("\(viewModel.signInError)", isPresented: $showingAlert) {
+                        .alert("\(viewModel.signInError)", isPresented: $showAlert) {
                                 Button("OK", role: .cancel) { }
                             }
                     
                     NavigationLink("Create account", destination: SignUpView())
                         .padding()
+                    
+                    Spacer()
                 }
-                .padding()
-                
-                Spacer()
             }
-            //.navigationTitle("Sign In")
+            .padding()
     }
 }
 
@@ -91,3 +99,4 @@ struct SignInView_Previews: PreviewProvider {
         SignInView()
     }
 }
+

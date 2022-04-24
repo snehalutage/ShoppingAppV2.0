@@ -12,32 +12,26 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
-        NavigationView{
+       NavigationView{
             if viewModel.signedIn
             {
                 VStack{
-                //Text("You are signed in")
                 HomeView()
-                
-                /*Button(action: {
-                    viewModel.signOut()
-                }, label: {
-                    Text("Sign Out")
-                        .frame(width: 200, height: 50)
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(8)
-                })*/
-                }.padding()
+                }
             }
-            else{
+            else
+            {
                 SignInView()
             }
         }
-      /*  .onAppear{
+       .navigationTitle("")
+       .navigationBarTitleDisplayMode(.inline)
+       .navigationBarHidden(true)
+        .onAppear{
             viewModel.signedIn = viewModel.iSignedIn
-        }*/
+        }
         
+    
     }//end body
 }//end ContentView
 
@@ -46,3 +40,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

@@ -8,8 +8,44 @@
 import SwiftUI
 
 struct OrderConfirmView: View {
+    @EnvironmentObject var viewModel: AppViewModel
+    
+    var totalCharge:String{
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        let total = Double(viewModel.totalPrice())
+        return formatter.string(from:NSNumber(value: total)) ?? "$0"
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Summary")
+                .font(.largeTitle)
+                .foregroundColor(Color.red)
+                .bold()
+            Spacer()
+            Text("Your Order Total is : \(totalCharge)")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            
+            Spacer()
+            
+            Text("Thank you for shopping!")
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundColor(Color.red)
+            
+            Image(systemName: "face.smiling")
+                .resizable()
+                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 250, height: 250)
+                .cornerRadius(150)
+            Spacer()
+        }
+            
+        
     }
 }
 

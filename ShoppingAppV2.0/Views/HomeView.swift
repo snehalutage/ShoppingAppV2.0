@@ -15,14 +15,17 @@ struct HomeView: View {
         TabView(selection: $selection)
         {
             //For Login View
-            SignInView()
-            .tabItem
+            if (!viewModel.iSignedIn)
             {
-                Image(systemName: "person")
-                Label("Login", image: "cart")
-                    .font(.system(size: 26))
-            }//end LoginSignup View
-            .tag(1)
+                SignInView()
+                .tabItem
+                {
+                    Image(systemName: "person")
+                    Label("Login", image: "cart")
+                        .font(.system(size: 26))
+                }//end LoginSignup View
+                .tag(1)
+            }
             
             //For Product List
             ProductListView()
@@ -44,6 +47,13 @@ struct HomeView: View {
             }//end Cart View
             .tag(3)
         }
+        .navigationBarItems(trailing:
+                                Button(action: {
+                                    viewModel.signOut()
+                                }, label: {
+                                    Image(systemName: "power.circle.fill")
+                                        .frame(width: 10, height: 10)
+                                }))
     }
 }
 

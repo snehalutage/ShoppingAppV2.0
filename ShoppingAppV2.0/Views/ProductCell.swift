@@ -22,7 +22,7 @@ struct ProductCell: View {
     }//end formatter
     
     var body: some View {
-        VStack {
+        HStack {
         
             AsyncImage(url: URL(string: product.url)) {
                 image in
@@ -30,7 +30,7 @@ struct ProductCell: View {
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 100, height: 150)
+            .frame(width: 150, height: 150)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
@@ -50,7 +50,7 @@ struct ProductCell: View {
                     .multilineTextAlignment(.leading)
                 
             }
-            .frame(width: 100, height: 70,alignment: .leading)
+           // .frame(width: 100, height: 70,alignment: .leading)
         }
         //.padding(4)
     }

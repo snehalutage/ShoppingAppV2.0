@@ -22,5 +22,5 @@ class  CartItems: ObservableObject {
         }
         return total
     }
-   
+    
 }
