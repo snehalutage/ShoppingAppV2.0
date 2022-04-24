@@ -12,7 +12,8 @@ struct ProductCell: View {
     var product : ProductViewModel
     @State var cartList:[ProductViewModel] = []
     @State private var showingAlert = false
-    //Number formatter to display the President number in ordinal format
+    
+    //Number formatter to display the Price
     var formatter: NumberFormatter
     {
         let formatter = NumberFormatter()
@@ -30,7 +31,7 @@ struct ProductCell: View {
             } placeholder: {
                 ProgressView()
             }
-            .frame(width: 150, height: 150)
+            .frame(width: 150, height: 150,alignment: .leading)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
@@ -39,20 +40,26 @@ struct ProductCell: View {
 
             VStack(alignment: .leading, spacing:15) {
                 Text(product.name)
-                    .font(.caption2)
+                    .font(.caption)
                     .fontWeight(.light)
                     .multilineTextAlignment(.leading)
                 
                 Text("$\(product.price)")
-                    .font(.caption2)
+                    .font(.caption)
                     .bold()
                     .fontWeight(.light)
                     .multilineTextAlignment(.leading)
                 
+                HStack(spacing: 2){
+                    Text("\(product.formatedRating)").font(.caption)
+                    Text("(\(product.rating.manualCount))").font(.caption)
+                        .foregroundColor(.secondary)
+                        .offset(y: 3)
+                }
+                
             }
-           // .frame(width: 100, height: 70,alignment: .leading)
         }
-        //.padding(4)
+        .padding(4)
     }
 }
 

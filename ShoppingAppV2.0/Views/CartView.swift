@@ -11,14 +11,6 @@ struct CartView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @State var isCartEmpty = true
     
-   /* var totalCharge:String{
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        let total = Double(viewModel.totalPrice())
-        return formatter.string(from:NSNumber(value: total)) ?? "$0"
-    }*/
-   
-    
     var body: some View {
         let keys = viewModel.cartProduct.map{$0.key}
         
@@ -61,17 +53,9 @@ struct CartView: View {
                         }
                     }
                 }
-               /* Section{
-                    Text("Total amount: \(totalCharge)")
-                        .layoutPriority(1)
-                }*/
-        
             }
             Button(action: {
                 print("Confirm Order \(viewModel.totalPrice())")
-                /*if (viewModel.cartProduct.count != 0 ){
-                    isCartEmpty = false
-                }*/
             })
             {
                 NavigationLink(destination: OrderConfirmView()) {
@@ -98,7 +82,6 @@ struct CartView: View {
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView()
-            //.environmentObject(CartItems())
             .environmentObject(AppViewModel())
             
     }

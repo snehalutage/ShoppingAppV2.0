@@ -62,14 +62,12 @@ struct SignInView: View {
                             return
                         }
                         viewModel.signIn(email: email, password: password)
-                        if(viewModel.signInError != ""){
-                            showAlert = true
-                        }
                     }, label: {
                         SignInButtonView()
                     })
-                        .alert("\(viewModel.signInError)", isPresented: $showAlert) {
-                                Button("OK", role: .cancel) { }
+                    if !viewModel.signInError.isEmpty {
+                        Text("Sign In Failure: \(viewModel.signInError)")
+                                    .foregroundColor(.red)
                             }
                     
                     NavigationLink("Create account", destination: SignUpView())

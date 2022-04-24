@@ -30,67 +30,27 @@ class AppViewModel: ObservableObject
                 self?.signInError = "\(error!.localizedDescription)"
                 return
             }
-            /*if let x = error {
-                  let err = x as NSError
-                  switch err.code {
-                  case AuthErrorCode.wrongPassword.rawValue:
-                      self?.signInError = "Wrong password!"
-                  case AuthErrorCode.invalidEmail.rawValue:
-                      self?.signInError = "Invalid email id"
-                  case AuthErrorCode.accountExistsWithDifferentCredential.rawValue:
-                      self?.signInError = "Account already exists"
-                  default:
-                      self?.signInError = "Unknown error: \(err.localizedDescription)"
-                  }
+            //Success
+            DispatchQueue.main.async {
+                self?.signedIn = true
             }
-            else
-            {*/
-                //Success
-                DispatchQueue.main.async {
-                    self?.signedIn = true
-                }
-            //}
-            
         }
     }
     
     //User Signup
     func signUp(email: String, password: String)
     {
+
         auth.createUser(withEmail: email, password: password){[weak self]result, error  in
-            /*guard result != nil, error == nil else{
-                self?.signUpError = false
+            guard result != nil, error == nil else{
+                self?.signUpError = "\(error!.localizedDescription)"
                 return
             }
-            switch result {
-                   case .none:
-                       print("Could not create account.")
-                        self?.signUpError = false
-                   case .some(_):
-                       print("User created")
-                       self?.signUpError = false
-                   }*/
-            
-            if let x = error {
-                  let err = x as NSError
-                  switch err.code {
-                  case AuthErrorCode.wrongPassword.rawValue:
-                      self?.signUpError = "Wrong password!"
-                  case AuthErrorCode.invalidEmail.rawValue:
-                      self?.signUpError = "Invalid email id"
-                  case AuthErrorCode.accountExistsWithDifferentCredential.rawValue:
-                      self?.signUpError = "Account already exists"
-                  default:
-                      self?.signUpError = "Unknown error: \(err.localizedDescription)"
-                  }
+        
+            //Success
+            DispatchQueue.main.async {
+                self?.signedIn = true
             }
-            else
-            {
-                //Success
-                DispatchQueue.main.async {
-                    self?.signedIn = true
-                }
-           }
         }
     }
     
@@ -107,14 +67,6 @@ class AppViewModel: ObservableObject
         cartProduct[item] = count
     }
 
-    /*var total:Double{
-        var total = 0.0
-        for item in cartProduct{
-            total += Double(item.number) * Double(item.price)!
-        }
-        return total
-    }*/
-    
     func totalPrice() -> Double{
         var total = 0.0
         for (product,count) in cartProduct {

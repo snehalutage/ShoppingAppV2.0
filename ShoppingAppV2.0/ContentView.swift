@@ -30,8 +30,6 @@ struct ContentView: View {
         .onAppear{
             viewModel.signedIn = viewModel.iSignedIn
         }
-        
-    
     }//end body
 }//end ContentView
 

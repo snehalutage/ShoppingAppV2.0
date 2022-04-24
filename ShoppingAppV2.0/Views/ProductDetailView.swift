@@ -12,7 +12,6 @@ struct ProductDetailView: View{
     @State private var showingAlert = false
     @State private var zeroItemAlert = false
     @State private var totalItems = 0
-    //@EnvironmentObject var cart: CartItems
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
@@ -37,13 +36,16 @@ struct ProductDetailView: View{
                 .bold()
                 .multilineTextAlignment(.leading)
             
-          /*  Text(product.category)
-                .font(.title3)
-                .bold()
-                .multilineTextAlignment(.leading)*/
+            
+            HStack(spacing: 2){
+                Text("\(product.formatedRating)").font(.title3)
+                Text("(\(product.rating.manualCount))").font(.title3)
+                    .foregroundColor(.secondary)
+                    .offset(y: 3)
+            }
 
             Text(product.description)
-                .font(.caption2)
+                .font(.caption)
                 .fontWeight(.light)
                 .multilineTextAlignment(.center)
                 .padding()
