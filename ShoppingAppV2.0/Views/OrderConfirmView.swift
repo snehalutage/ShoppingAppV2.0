@@ -40,7 +40,7 @@ struct OrderConfirmView: View {
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 250, height: 250)
+                .frame(width: 150, height: 150)
                 .cornerRadius(150)
             Spacer()
         }

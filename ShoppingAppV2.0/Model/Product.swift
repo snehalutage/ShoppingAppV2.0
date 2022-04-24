@@ -20,6 +20,7 @@ struct Product: Decodable, Hashable
     var category = ""
     var url = "None"
     var number = 0
+    var rating: Rating
     
     private enum CodingKeys: String, CodingKey
     {
@@ -29,5 +30,14 @@ struct Product: Decodable, Hashable
         case description = "description"
         case category = "category"
         case url = "image"
+        case rating = "rating"
     }
 }//end struct
+
+
+struct Rating: Codable, Hashable {
+    let rate: Double
+    let manualCount: Int = Int.random(in: 0...500)
+}
+    
+

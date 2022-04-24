@@ -48,12 +48,12 @@ struct HomeView: View {
             .tag(3)
         }
         .navigationBarItems(trailing:
-                                Button(action: {
-                                    viewModel.signOut()
-                                }, label: {
-                                    Image(systemName: "power.circle.fill")
-                                        .frame(width: 10, height: 10)
-                                }))
+            Button(action: {
+                viewModel.signOut()
+            }, label: {
+                Image(systemName: "power.circle.fill")
+                    .frame(width: 10, height: 10)
+        }))
     }
 }
 

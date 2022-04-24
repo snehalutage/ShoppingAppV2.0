@@ -11,7 +11,6 @@ struct ProductListView: View {
     
     @StateObject private var productListViewModel = ProductListViewModel()
     @State private var selectedCategory = "electronics"
-    var images:[String:String] = ["electronics" :"electronics", "jewelery":"jwelery", "men's clothing":"mens", "women's clothing":"women"]
     
     var body: some View
     {
@@ -31,23 +30,13 @@ struct ProductListView: View {
                                     .font(.caption2)
                                     .fontWeight(.light)
                                     .padding(8)
-                               /* Image(images[value]!)
-                                    .resizable()
-                                    .scaledToFit()
-                                   // .frame(width: 5.0, height: 5.0)
-                                    .border(.black)
-                                    .background(Color.green)
-                                    .padding(.bottom, 5)
-                                    .padding(.top, 5)*/
-                            }//end ForEach
+                            }
                         }
                         .pickerStyle(.segmented)
-                        /*.shadow(color: .gray, radius: 10, x: 10, y: 10)*/
                         .padding(10)
                     }//end VStack
                     .task
                     {
-                        //print(selectedCategory)
                         await productListViewModel.getCategories()
                     }
                     .onChange(of: selectedCategory, perform: {vaue in Task{ await productListViewModel.getProducts(cat: selectedCategory)}})
@@ -63,7 +52,6 @@ struct ProductListView: View {
                             {
                                 ProductCell(product: product)
                             }
-                          //product in ProductCell(product: product)
                          }
                      }//end HStack
                      .task

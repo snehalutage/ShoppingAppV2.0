@@ -36,11 +36,7 @@ struct SignUpView: View {
                         {
                             return
                         }
-                        print(viewModel.signUpError)
                         viewModel.signUp(email: email, password: password)
-                        if(!viewModel.signUpError.isEmpty){
-                            showSignUpAlert = true
-                        }
                        
                         }, label: {
                         Text("Create account")
@@ -50,12 +46,12 @@ struct SignUpView: View {
                             .cornerRadius(8)
                     })
                     .disabled(email.isEmpty || password.isEmpty)
-                    .alert("\(viewModel.signUpError)", isPresented: $showSignUpAlert) {
-                            Button("OK", role: .cancel) { }
-                        }
+                
+                    if !viewModel.signUpError.isEmpty {
+                        Text("Failed creating account: \(viewModel.signUpError)")
+                                    .foregroundColor(.red)
+                            }
                     
-                
-                
                     Spacer()
                 }
                 .padding()
